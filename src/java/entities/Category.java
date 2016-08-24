@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ADMIN1.CATEGORY")
 public class Category {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int C_ID;

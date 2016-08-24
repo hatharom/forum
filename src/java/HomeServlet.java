@@ -17,10 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class HomeServlet extends HttpServlet {
-
- 
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +32,7 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-      
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -43,19 +40,31 @@ public class HomeServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet HomeServlet at " + request.getContextPath() + "</h1>");
-        
-            EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
-            System.out.println("xml is ok");
-            EntityManager entityManager = emfactory.createEntityManager();
-            Query query = entityManager.createQuery("SELECT u FROM Topic u");
 
-            List<Topic>  list = query.getResultList();
-            System.out.println(list);
-            for (int i = 0; i < list.size(); i++) {
-                out.println("a kért adat: " + list.get(i) + "</br>");
-                
+            if (request.getParameter("id") != null) {
+                String fetchData = request.getParameter("id");
+                List list = EntityHandler.getList(fetchData);
+
+                for (int i = 0; i < list.size(); i++) {
+
+                    try {
+
+                        final Class<?> clazz = Class.forName(fetchData);
+
+                        out.println("a kért adat: " + ((Topic) list.get(i)).getName() + "</br>");
+                    } catch (Exception e) {
+
+                    }
+                }
+            } else {
+                List list = EntityHandler.getList("Category");
+                for (int i = 0; i < list.size(); i++) {
+                    out.println("a kért adat: " + ((Category) list.get(i)).getName() + "</br>");
+
+                }
             }
-                  
+
+            out.println("<a href=" + request.getContextPath() + "/HomeServlet?id=Topic>reload!</a>");
             out.println("</body>");
             out.println("</html>");
         }
