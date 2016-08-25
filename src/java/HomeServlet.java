@@ -44,17 +44,10 @@ public class HomeServlet extends HttpServlet {
             if (request.getParameter("id") != null) {
                 String fetchData = request.getParameter("id");
                 List list = EntityHandler.getList(fetchData);
-
                 for (int i = 0; i < list.size(); i++) {
 
-                    try {
+                    out.println("a kért adat: " + ((Topic) list.get(i)).getName() + "</br>");
 
-                        final Class<?> clazz = Class.forName(fetchData);
-
-                        out.println("a kért adat: " + ((Topic) list.get(i)).getName() + "</br>");
-                    } catch (Exception e) {
-
-                    }
                 }
             } else {
                 List list = EntityHandler.getList("Category");
@@ -63,7 +56,7 @@ public class HomeServlet extends HttpServlet {
 
                 }
             }
-
+            out.println("test item: "+((Post)EntityHandler.getItem("Post", 2)));
             out.println("<a href=" + request.getContextPath() + "/HomeServlet?id=Topic>reload!</a>");
             out.println("</body>");
             out.println("</html>");
