@@ -1,6 +1,5 @@
 package base;
 
-
 import entities.*;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -14,13 +13,30 @@ public class EntityHandler {
     private static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
     private static EntityManager entityManager = emfactory.createEntityManager();
     private static Query query = null;
-    public  String bob="bobo";
+
     public static List getList(String entity) {
         if (entity == null || entity.length() < 1) {
             return null;
         }
         query = entityManager.createQuery("SELECT u FROM " + entity + " u");
         List list = query.getResultList();
+        return list;
+    }
+
+    public static List getFilteredList(String entity, int conditionId) {
+        List list=null;
+        if (entity == null || entity.length() < 1) {
+            return null;
+        }
+        if (entity.equalsIgnoreCase("topic")) {//repair need condId
+            query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.C_ID = 2");
+            list = query.getResultList();
+        } else if (entity.equalsIgnoreCase("post")) {
+            query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.T_ID = 2");
+            list = query.getResultList();
+        }
+
+      
         return list;
     }
 
@@ -40,5 +56,4 @@ public class EntityHandler {
         return entityObject;
     }
 
-    
 }
