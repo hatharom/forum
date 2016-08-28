@@ -29,10 +29,10 @@ public class EntityHandler {
             return null;
         }
         if (entity.equalsIgnoreCase("topic")) {//repair need condId
-            query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.C_ID = 2");
+            query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.C_ID ="+conditionId+" ");
             list = query.getResultList();
         } else if (entity.equalsIgnoreCase("post")) {
-            query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.T_ID = 2");
+            query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.T_ID = "+conditionId+"");
             list = query.getResultList();
         }
 

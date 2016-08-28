@@ -1,0 +1,47 @@
+
+#forumpage{
+    height:1000px;
+    width:900px;
+    background-color: grey;
+
+}
+
+#banner{
+    width: 900px;
+    height:150px;
+    background-color: blue;
+    font-size: 40px;
+    text-align: center;
+}
+
+#loginbox{
+    height:200px;
+    width:200px;
+    background-color:lightseagreen;
+    margin-left:690px;  
+
+}
+
+a:visited{
+  color:  black;
+}
+
+#contentpage{
+    height:700px;
+    width:640px;
+    background-color: brown;
+    float:left;
+    margin-left: 10px;
+    margin-top:10px;
+
+}
+
+#footer{
+    height:100px;
+    width:900px;
+    background-color: orange;
+    margin-top:550px;
+   
+    
+}
+
