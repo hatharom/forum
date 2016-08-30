@@ -30,11 +30,11 @@ public class AuthServlet extends HttpServlet {
 
             if (isLegalUser(name, pass)) {
                 HttpSession session = request.getSession();
-                session.setAttribute("name", name);
+                session.setAttribute("name", name);                
             }
 
         }
-
+         response.sendRedirect(request.getContextPath()+"/index.jsp");
     }
 
     private boolean isLegalUser(String name, String pass) {
@@ -45,14 +45,12 @@ public class AuthServlet extends HttpServlet {
         List users = EntityHandler.getList("User");
         for (Object u:users) {
             if(name.equals(((User)u).getName())&&pass.equals(((User)u).getPassword())){
-                System.out.println("name: "+name+" pass: "+pass+" were found!");
                 return true;
             }
         }
-        System.out.println("name: "+name+" pass: "+pass+" NOT found!");
         return false;
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

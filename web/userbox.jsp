@@ -1,15 +1,12 @@
 
 <div id="userbox">
     <h1>userbox</h1>
-   <form action='AuthServlet' method='POST' >
-           
- <input type='text' name='username'>
-          
-        
+    <% if (session.getAttribute("name")==null){ %>
+ <jsp:include page="loginbox.jsp" flush="true" />
+ <%} else {%>
+  <jsp:include page="profilbox.jsp" flush="true" />
+  <%} %>
     
-          <input type='text' name='password'>
-          
-     <input type='submit' value='Submit'>
-    </form>
+
 </div>
 
