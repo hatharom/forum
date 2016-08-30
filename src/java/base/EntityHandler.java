@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-//working as DAO
+//acting as DAO
 public class EntityHandler {
 
     private static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
@@ -15,11 +15,12 @@ public class EntityHandler {
     private static Query query = null;
 
     public static List getList(String entity) {
+       
         if (entity == null || entity.length() < 1) {
             return null;
         }
         query = entityManager.createQuery("SELECT u FROM " + entity + " u");
-        List list = query.getResultList();
+       List list = query.getResultList();
         return list;
     }
 
@@ -28,7 +29,7 @@ public class EntityHandler {
         if (entity == null || entity.length() < 1) {
             return null;
         }
-        if (entity.equalsIgnoreCase("topic")) {//repair need condId
+        if (entity.equalsIgnoreCase("topic")) {
             query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.C_ID ="+conditionId+" ");
             list = query.getResultList();
         } else if (entity.equalsIgnoreCase("post")) {

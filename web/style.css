@@ -2,14 +2,14 @@
 #forumpage{
     height:1000px;
     width:900px;
-    background-color: grey;
+    background-color:#ddddec;
 
 }
 
 #banner{
     width: 900px;
     height:150px;
-    background-color: blue;
+    background-color:#5757e7;
     font-size: 40px;
     text-align: center;
 }
@@ -17,19 +17,23 @@
 #loginbox{
     height:200px;
     width:200px;
-    background-color:lightseagreen;
+    background-color:#796b9e;
     margin-left:690px;  
 
 }
 
 a:visited{
-  color:  black;
+    color:  black;
+}
+a:link{
+    text-decoration: none;
+    color:black;
 }
 
 #contentpage{
     height:700px;
     width:640px;
-    background-color: brown;
+    background-color: #ddddec;
     float:left;
     margin-left: 10px;
     margin-top:10px;
@@ -41,7 +45,43 @@ a:visited{
     width:900px;
     background-color: orange;
     margin-top:550px;
-   
-    
+
+
 }
 
+.post{
+    margin-left:30px;
+    margin-top:10px;
+
+}
+.posthead{
+    background-color: #ccccff;
+    width:550px;
+    height:50px;
+}
+
+.postcontent{
+    background-color:#e1e1ee;
+    height:80px;
+    width:550px;
+}
+
+.topic{
+    margin-left:30px;
+    margin-top:10px;
+    background-color: #ccccff;
+    width:550px;
+    height:30px;
+}
+
+.category{
+      margin-left:30px;
+    margin-top:10px;
+    background-color: #ccccff;
+    width:550px;
+    height:30px;
+}
+
+h2{
+    text-align: center;
+}
