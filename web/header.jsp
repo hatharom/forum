@@ -10,5 +10,5 @@
     <body>
         <div id="forumpage">
         <div id="banner">
-            Welcome to the forum!
+            <a href="index.jsp"> Welcome to the forum!</a>
         </div>

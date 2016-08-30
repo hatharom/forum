@@ -1,9 +1,10 @@
 
 #forumpage{
-    height:1000px;
+    height:auto;
+    min-height:1000px;
     width:900px;
     background-color:#ddddec;
-
+overflow: auto;
 }
 
 #banner{
@@ -12,6 +13,7 @@
     background-color:#5757e7;
     font-size: 40px;
     text-align: center;
+ 
 }
 
 #userbox{
@@ -31,7 +33,9 @@ a:link{
 }
 
 #contentpage{
-    height:700px;
+    height:auto;
+    overflow: auto;
+   min-height:700px;
     width:640px;
     background-color: #ddddec;
     float:left;
@@ -45,7 +49,6 @@ a:link{
     width:900px;
     background-color: orange;
     margin-top:550px;
-
 
 }
 
