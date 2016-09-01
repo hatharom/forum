@@ -23,6 +23,13 @@ overflow: auto;
     margin-left:690px;  
 
 }
+#newpost textArea{
+    resize: none;
+    margin-left: 10px;
+}
+#newpost input{
+  float:right;
+}
 
 a:visited{
     color:  black;
@@ -50,6 +57,13 @@ a:link{
     background-color: orange;
     margin-top:550px;
 
+}
+
+#newpost{
+    height:130px;
+    width:450px;
+    background-color:#87E7DF;
+    margin-left:100px;
 }
 
 .post{

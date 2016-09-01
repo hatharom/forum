@@ -19,5 +19,8 @@
         out.println("</div>");
         out.println("</div>");
     }
+     if (session.getAttribute("name")!=null){%>
+  <jsp:include page="newpost.jsp" flush="true" />
+  <%}
 
 %>

@@ -8,6 +8,10 @@
         <servlet-name>AuthServlet</servlet-name>
         <servlet-class>base.AuthServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PostOperator</servlet-name>
+        <servlet-class>base.PostOperator</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/AuthServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostOperator</servlet-name>
+        <url-pattern>/PostOperator</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
