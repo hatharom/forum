@@ -1,6 +1,7 @@
 package base;
 
 import entities.*;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,6 +36,7 @@ public class EntityHandler {
         if (entity.equalsIgnoreCase("topic")) {
             query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.C_ID =" + conditionId + " ");
             list = query.getResultList();
+
         } else if (entity.equalsIgnoreCase("post")) {
             query = entityManager.createQuery("SELECT u FROM " + entity + " u WHERE u.T_ID = " + conditionId + "");
             list = query.getResultList();
@@ -49,7 +51,6 @@ public class EntityHandler {
         }
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
-        Query query = null;
         Class c = null;
         try {
             c = Class.forName("entities." + entity);
@@ -60,6 +61,30 @@ public class EntityHandler {
         Object entityObject = entityManager.find(c, id);
 
         return entityObject;
+    }
+
+    public static void setPost(String content, int T_ID, int U_ID, Date date) {
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
+        EntityManager entityManager = emfactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Post post = new Post();
+        post.setContent(content);
+        post.setT_ID(T_ID);
+        post.setU_ID(U_ID);
+        post.setDate(date);
+        entityManager.persist(post);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        emfactory.close();
+    }
+
+    static int getId(String entity, String column, String name) {
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
+        EntityManager entityManager = emfactory.createEntityManager();
+        Query query = entityManager.createQuery("Select u FROM " + entity + " u WHERE u." + column + " like '" + name+"'");
+        Object result = query.getSingleResult();
+        User u = (User) result;//need to change for generic
+        return u.getU_ID();
     }
 
 }
