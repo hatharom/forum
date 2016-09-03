@@ -14,6 +14,10 @@
     %>
     <jsp:include page="posts.jsp" flush="true" />
     <%
+        }else if (pageParam.equalsIgnoreCase("registration")) {
+    %>
+    <jsp:include page="registration.jsp" flush="true" />
+    <%
         }
 
     %>
