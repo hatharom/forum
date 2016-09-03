@@ -1,10 +1,10 @@
 
 #forumpage{
-    height:auto;
+ 
     min-height:1000px;
     width:900px;
     background-color:#ddddec;
-    overflow: auto;
+  
 }
 
 #banner{
@@ -48,7 +48,7 @@ a:link{
     float:left;
     margin-left: 10px;
     margin-top:10px;
-
+    padding-bottom: 100px;
 }
 
 #footer{
@@ -56,7 +56,8 @@ a:link{
     width:900px;
     background-color: orange;
     margin-top:550px;
-
+    padding-top:-100px;
+    clear:both;
 }
 
 #newpost{
