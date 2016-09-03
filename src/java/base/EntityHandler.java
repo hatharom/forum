@@ -78,6 +78,20 @@ public class EntityHandler {
         emfactory.close();
     }
 
+     public static void setTopic(String name, int C_ID) {
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
+        EntityManager entityManager = emfactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Topic topic = new Topic();
+        topic.setName(name);
+        topic.setC_ID(C_ID);
+        entityManager.persist(topic);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        emfactory.close();
+    }
+    
+    
     static int getId(String entity, String column, String name) {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();

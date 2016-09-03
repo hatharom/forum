@@ -12,6 +12,10 @@
         <servlet-name>PostOperator</servlet-name>
         <servlet-class>base.PostOperator</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TopicOperator</servlet-name>
+        <servlet-class>base.TopicOperator</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>PostOperator</servlet-name>
         <url-pattern>/PostOperator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TopicOperator</servlet-name>
+        <url-pattern>/TopicOperator</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

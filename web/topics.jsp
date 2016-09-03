@@ -12,5 +12,9 @@
                 + t.getName() + "</a>");
         out.print("</div>");
     }
+    
+     if (session.getAttribute("name")!=null){%>
+  <jsp:include page="newtopic.jsp" flush="true" />
+  <%}
 
 %>
