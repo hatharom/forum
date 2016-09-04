@@ -78,7 +78,7 @@ public class EntityHandler {
         emfactory.close();
     }
 
-     public static void setTopic(String name, int C_ID) {
+    public static void setTopic(String name, int C_ID) {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         entityManager.getTransaction().begin();
@@ -90,12 +90,26 @@ public class EntityHandler {
         entityManager.close();
         emfactory.close();
     }
-    
-    
+
+    public static void setUser(String name, String email, String password) {
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
+        EntityManager entityManager = emfactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        user.setPassword(password);
+        entityManager.persist(user);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        emfactory.close();
+
+    }
+
     static int getId(String entity, String column, String name) {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
-        Query query = entityManager.createQuery("Select u FROM " + entity + " u WHERE u." + column + " like '" + name+"'");
+        Query query = entityManager.createQuery("Select u FROM " + entity + " u WHERE u." + column + " like '" + name + "'");
         Object result = query.getSingleResult();
         User u = (User) result;//need to change for generic
         return u.getU_ID();

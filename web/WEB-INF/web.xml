@@ -16,6 +16,10 @@
         <servlet-name>TopicOperator</servlet-name>
         <servlet-class>base.TopicOperator</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserOperator</servlet-name>
+        <servlet-class>base.UserOperator</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>TopicOperator</servlet-name>
         <url-pattern>/TopicOperator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserOperator</servlet-name>
+        <url-pattern>/UserOperator</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
