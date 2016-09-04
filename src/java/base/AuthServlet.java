@@ -20,6 +20,7 @@ public class AuthServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String pathToRedirect = request.getParameter("currentPath");
         if (request.getParameter("logout") != null) {
             HttpSession session = request.getSession();
             session.invalidate();
@@ -30,11 +31,11 @@ public class AuthServlet extends HttpServlet {
 
             if (isLegalUser(name, pass)) {
                 HttpSession session = request.getSession();
-                session.setAttribute("name", name);                
+                session.setAttribute("name", name);
             }
 
         }
-         response.sendRedirect(request.getContextPath()+"/index.jsp");
+        response.sendRedirect(pathToRedirect);
     }
 
     private boolean isLegalUser(String name, String pass) {
@@ -43,14 +44,14 @@ public class AuthServlet extends HttpServlet {
         }
         boolean result = false;
         List users = EntityHandler.getList("User");
-        for (Object u:users) {
-            if(name.equals(((User)u).getName())&&pass.equals(((User)u).getPassword())){
+        for (Object u : users) {
+            if (name.equals(((User) u).getName()) && pass.equals(((User) u).getPassword())) {
                 return true;
             }
         }
         return false;
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

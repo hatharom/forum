@@ -19,7 +19,7 @@ public class PostOperator extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-                  
+            String pathToRedirect=request.getParameter("currentPath");
             HttpSession session = request.getSession(false);
             String name = (String)session.getAttribute("name");  
             String comment = request.getParameter("comment");
@@ -27,7 +27,7 @@ public class PostOperator extends HttpServlet {
             int U_ID = EntityHandler.getId("User","name",name);
             EntityHandler.setPost(comment, T_ID, U_ID,new Date());           
         
-            response.sendRedirect(request.getContextPath()+"/index.jsp?page=posts&id="+T_ID);
+            response.sendRedirect(pathToRedirect);
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
