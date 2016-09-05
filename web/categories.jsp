@@ -13,5 +13,4 @@
                 + c.getName() + "</a>");
         out.print("</div>");
     }
-
 %>

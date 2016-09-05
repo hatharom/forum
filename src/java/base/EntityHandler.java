@@ -78,6 +78,7 @@ public class EntityHandler {
         emfactory.close();
     }
 
+    
     public static void setTopic(String name, int C_ID) {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
@@ -114,5 +115,5 @@ public class EntityHandler {
         User u = (User) result;//need to change for generic
         return u.getU_ID();
     }
-
+ 
 }
