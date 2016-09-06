@@ -1,6 +1,5 @@
 
-<div id="userbox">
-    <h1>userbox</h1>
+<div id="userbox">   
     <% if (session.getAttribute("name")==null){ %>
  <jsp:include page="loginbox.jsp" flush="true" />
  <%} else {%>

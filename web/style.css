@@ -21,6 +21,7 @@
     width:200px;
     background-color:#796b9e;
     margin-left:690px;  
+    margin-top:50px;
 
 }
 #newpost textArea{
@@ -101,4 +102,18 @@ a:link{
 
 h2{
     text-align: center;
+}
+
+.welcomemessage{
+    font-size: 25px;
+    margin-top:5px;
+    margin-bottom: 20px;
+    
+}
+
+#usermenu{
+    font-size: 14px;
+    margin-top:10px;
+    margin-bottom: 20px;
+   
 }

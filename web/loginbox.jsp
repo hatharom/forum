@@ -1,3 +1,4 @@
+<div class="welcomemessage">Please login!</div>
 <form action='AuthServlet' method='POST' >
     <% String currentPath = request.getRequestURL() + "?" + request.getQueryString();%>
     username:</br>

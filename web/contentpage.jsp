@@ -18,6 +18,10 @@
     %>
     <jsp:include page="registration.jsp" flush="true" />
     <%
+        }else if (pageParam.equalsIgnoreCase("privatemessage")) {
+    %>
+    <jsp:include page="privatemessage.jsp" flush="true" />
+    <%
         }
 
     %>
