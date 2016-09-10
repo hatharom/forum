@@ -24,12 +24,15 @@ public class ErrorPage extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>404!</title>");            
+            out.println("<title>404!</title>");    
+            out.println("<link rel=\"stylesheet\" href=\"style.css\">");
             out.println("</head>");
             out.println("<body>");
             out.println("<div id=\"error\">");
             out.println("<h1>The requested page doesnt exist</h1>");
             out.println(" <img src=\"404.jpg\"> ");
+            out.println("</br>");
+            out.println(" <a href=\"index.jsp\">back to the main page </a>");
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");
