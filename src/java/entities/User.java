@@ -5,6 +5,7 @@
  */
 package entities;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,26 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String location;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date registration;
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setRegistration(Date registration) {
+        this.registration = registration;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public Date getRegistration() {
+        return registration;
+    }
+    
     public int getU_ID() {
         return U_ID;
     }

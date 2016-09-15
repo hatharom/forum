@@ -14,13 +14,17 @@
     %>
     <jsp:include page="posts.jsp" flush="true" />
     <%
-        }else if (pageParam.equalsIgnoreCase("registration")) {
+    } else if (pageParam.equalsIgnoreCase("registration")) {
     %>
     <jsp:include page="registration.jsp" flush="true" />
     <%
-        }else if (pageParam.equalsIgnoreCase("privatemessage")) {
+    } else if (pageParam.equalsIgnoreCase("privatemessage")) {
     %>
     <jsp:include page="privatemessage.jsp" flush="true" />
+    <%
+        }else if (pageParam.equalsIgnoreCase("profile")) {
+    %>
+    <jsp:include page="profile.jsp" flush="true" />
     <%
         }
 

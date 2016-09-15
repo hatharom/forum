@@ -107,7 +107,7 @@ public class EntityHandler {
 
     }
 
-    static int getId(String entity, String column, String name) {
+  public  static int getId(String entity, String column, String name) {
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         Query query = entityManager.createQuery("Select u FROM " + entity + " u WHERE u." + column + " like '" + name + "'");

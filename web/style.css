@@ -98,7 +98,15 @@ a:link{
     height:30px;
 }
 
-
+#profile{
+    border-radius:10px;
+    border: 1px solid #796b9e;
+    background-color:antiquewhite;
+    height:500px;
+    padding-top:-20px;
+    padding-left: 40px;
+    
+}
 
 h2{
     text-align: center;

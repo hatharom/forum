@@ -10,9 +10,10 @@
     for (int i = 0; i < list.size(); i++) {
         Post p = ((Post) list.get(i));
         User user = (User) EntityHandler.getItem("User", p.getU_ID());
+        String username=user.getName();
         out.println("<div class='post'>");
         out.println("<div class='posthead'>");
-        out.println(user.getName());
+        out.println("<a href='/Forum/index.jsp?page=profile&name="+username+"'>"+username+"</a>");
         out.println("</div>");
         out.println("<div class='postcontent'>");
         out.println(p.getContent());
