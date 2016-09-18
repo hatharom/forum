@@ -1,6 +1,7 @@
 package base;
 
 import entities.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -115,5 +116,30 @@ public class EntityHandler {
         User u = (User) result;//need to change for generic
         return u.getU_ID();
     }
+  
+  public static void setPrivateMessage(int from_id, int to_id, String content){
+      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
+        EntityManager entityManager = emfactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        PrivateMessage pm = new PrivateMessage();
+        pm.setFROM_ID(from_id);
+        pm.setTO_ID(to_id);
+        pm.setContent(content);
+        pm.setDate(new Date());      
+        entityManager.persist(pm);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        emfactory.close();            
+  }
+  
+   public static List<PrivateMessage> getPrivateMessage(int to_Id) {
+        List<PrivateMessage> pmList=null; 
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
+        EntityManager entityManager = emfactory.createEntityManager();    
+        Query query = entityManager.createQuery("Select p FROM PrivateMessage p WHERE p.To_ID="+ to_Id);      
+        pmList=query.getResultList();       
+        return pmList;
+    }
+  
  
 }
