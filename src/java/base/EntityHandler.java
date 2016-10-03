@@ -12,12 +12,14 @@ import javax.persistence.Query;
 //acting as DAO
 public class EntityHandler {
 
+    
+    private static  EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
+    
     public static List getList(String entity) {
 
         if (entity == null || entity.length() < 1) {
             return null;
         }
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         Query query = null;
         query = entityManager.createQuery("SELECT u FROM " + entity + " u");
@@ -30,7 +32,6 @@ public class EntityHandler {
         if (entity == null || entity.length() < 1) {
             return null;
         }
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         Query query = null;
         List list = null;
@@ -50,7 +51,6 @@ public class EntityHandler {
         if (entity == null || entity.length() < 1) {
             return null;
         }
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         Class c = null;
         try {
@@ -65,7 +65,6 @@ public class EntityHandler {
     }
 
     public static void setPost(String content, int T_ID, int U_ID, Date date) {
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         entityManager.getTransaction().begin();
         Post post = new Post();
@@ -81,7 +80,6 @@ public class EntityHandler {
 
     
     public static void setTopic(String name, int C_ID) {
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         entityManager.getTransaction().begin();
         Topic topic = new Topic();
@@ -94,7 +92,6 @@ public class EntityHandler {
     }
 
     public static void setUser(String name, String email, String password) {
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         entityManager.getTransaction().begin();
         User user = new User();
@@ -109,7 +106,6 @@ public class EntityHandler {
     }
 
   public  static int getId(String entity, String column, String name) {
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         Query query = entityManager.createQuery("Select u FROM " + entity + " u WHERE u." + column + " like '" + name + "'");
         Object result = query.getSingleResult();
@@ -118,7 +114,6 @@ public class EntityHandler {
     }
   
   public static void setPrivateMessage(int from_id, int to_id, String content){
-      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();
         entityManager.getTransaction().begin();
         PrivateMessage pm = new PrivateMessage();
@@ -134,7 +129,6 @@ public class EntityHandler {
   
    public static List<PrivateMessage> getPrivateMessage(int to_Id) {
         List<PrivateMessage> pmList=null; 
-        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("persistForum");
         EntityManager entityManager = emfactory.createEntityManager();    
         Query query = entityManager.createQuery("Select p FROM PrivateMessage p WHERE p.To_ID="+ to_Id);      
         pmList=query.getResultList();       

@@ -19,17 +19,20 @@ public class PostOperator extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            String pathToRedirect=request.getParameter("currentPath");
-            HttpSession session = request.getSession(false);
-            String name = (String)session.getAttribute("name");  
-            String comment = request.getParameter("comment");
-            int T_ID = Integer.parseInt(request.getParameter("T_ID"));
-            int U_ID = EntityHandler.getId("User","name",name);
-            EntityHandler.setPost(comment, T_ID, U_ID,new Date());           
-        
-            response.sendRedirect(pathToRedirect);
+        String pathToRedirect = request.getParameter("currentPath");
+        HttpSession session = request.getSession(false);
+        String name = (String) session.getAttribute("name");
+        String comment = request.getParameter("comment");
+        int T_ID = Integer.parseInt(request.getParameter("T_ID"));
+        int U_ID = -1;
+        if (name != null && comment != null) {
+            U_ID = EntityHandler.getId("User", "name", name);
+        }
+        EntityHandler.setPost(comment, T_ID, U_ID, new Date());
+
+        response.sendRedirect(pathToRedirect);
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -69,6 +72,4 @@ public class PostOperator extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    
-     
 }
