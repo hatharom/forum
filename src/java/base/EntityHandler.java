@@ -75,7 +75,7 @@ public class EntityHandler {
         entityManager.persist(post);
         entityManager.getTransaction().commit();
         entityManager.close();
-        emfactory.close();
+   
     }
 
     
@@ -88,7 +88,7 @@ public class EntityHandler {
         entityManager.persist(topic);
         entityManager.getTransaction().commit();
         entityManager.close();
-        emfactory.close();
+      
     }
 
     public static void setUser(String name, String email, String password) {
@@ -101,7 +101,7 @@ public class EntityHandler {
         entityManager.persist(user);
         entityManager.getTransaction().commit();
         entityManager.close();
-        emfactory.close();
+       
 
     }
 
@@ -124,7 +124,7 @@ public class EntityHandler {
         entityManager.persist(pm);
         entityManager.getTransaction().commit();
         entityManager.close();
-        emfactory.close();            
+                 
   }
   
    public static List<PrivateMessage> getPrivateMessage(int to_Id) {
