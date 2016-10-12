@@ -1,20 +1,19 @@
 <%@page import="entities.*"%>
 <%@page import="java.util.*"%>
 <%@page import="base.*"%>
-<%
-    List list = EntityHandler.getFilteredList("Topic", Integer.parseInt(request.getParameter("id")));
-    Category c = (Category) EntityHandler.getItem("Category", Integer.parseInt(request.getParameter("id")));
-    out.println("<h2><a href='index.jsp'>Category</a>->" + c.getName() + "</h2>");
-    for (int i = 0; i < list.size(); i++) {
-        Topic t = ((Topic) list.get(i));
-        out.println("<div class='topic'>");
-        out.println("<a href=/Forum/index.jsp?page=posts&id=" + t.getT_ID() + ">"
-                + t.getName() + "</a>");
-        out.print("</div>");
-    }
-    
-     if (session.getAttribute("name")!=null){%>
-  <jsp:include page="newtopic.jsp" flush="true" />
-  <%}
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-%>
+<jsp:useBean id="entity" class="base.EntityHandler"/>
+<c:set var="pid" scope="request" value='${param.id}'/>
+<c:set var="topicList" scope="page" value='${entity.getFilteredList("Topic",pid)}'/>
+<c:set var="category" scope="page" value='${entity.getItem("Category",pid)}'/>
+
+<h2><c:out value="${category.getName()}"/></h2>
+<c:forEach var="topic" items="${topicList}">
+   
+    <div class='topic'>
+           <a href="/Forum/index.jsp?page=posts&id=<c:out value='${topic.getT_ID()}'/>"><c:out value='${topic.getName()}'/> </a>
+      
+    </div>  
+    
+</c:forEach> 
