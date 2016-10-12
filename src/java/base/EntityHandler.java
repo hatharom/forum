@@ -17,7 +17,7 @@ public class EntityHandler {
     
     public static List getList(String entity) {
 
-        if (entity == null || entity.length() < 1) {
+        if (entity == null || entity.length() == 0) {
             return null;
         }
         EntityManager entityManager = emfactory.createEntityManager();
@@ -29,7 +29,7 @@ public class EntityHandler {
 
     public static List getFilteredList(String entity, int conditionId) {
 
-        if (entity == null || entity.length() < 1) {
+        if (entity == null || entity.length() == 0) {
             return null;
         }
         EntityManager entityManager = emfactory.createEntityManager();
@@ -48,7 +48,7 @@ public class EntityHandler {
     }
 
     public static Object getItem(String entity, int id) {
-        if (entity == null || entity.length() < 1) {
+        if (entity == null || entity.length() == 0) {
             return null;
         }
         EntityManager entityManager = emfactory.createEntityManager();
@@ -97,7 +97,7 @@ public class EntityHandler {
         User user = new User();
         user.setName(name);
         user.setEmail(email);
-        user.setPassword(password);
+        user.setPassword(Security.getHash(password));
         entityManager.persist(user);
         entityManager.getTransaction().commit();
         entityManager.close();

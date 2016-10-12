@@ -44,8 +44,9 @@ public class AuthServlet extends HttpServlet {
         }
         boolean result = false;
         List users = EntityHandler.getList("User");
+        
         for (Object u : users) {
-            if (name.equals(((User) u).getName()) && pass.equals(((User) u).getPassword())) {
+            if (name.equals(((User) u).getName()) && Security.getHash(pass).equals(((User) u).getPassword())) {
                 return true;
             }
         }
